@@ -1,5 +1,6 @@
+using System;
 using System.Collections.Generic;
-using JoiGradShoppingcart.Service;
+using System.Linq;
 
 namespace JoiGradShoppingcart.Model
 {
@@ -8,17 +9,11 @@ namespace JoiGradShoppingcart.Model
         //Product and quantity
         private Customer _customer;
         private List<Product> _products;
-        private IOrderService _orderService;
 
         public ShoppingCart(Customer customer, List<Product> products)
         {
             _customer = customer;
             _products = products;
-        }
-
-        public void SetOrderService(IOrderService orderService)
-        {
-            _orderService = orderService;
         }
 
         public void AddProduct(Product product)
@@ -31,7 +26,7 @@ namespace JoiGradShoppingcart.Model
             _products.Remove(product);
         }
 
-        public void Checkout()
+        public Order Checkout()
         {
             var totalPrice = 0.0;
             var loyaltyPointsEarned = 0;
@@ -53,7 +48,12 @@ namespace JoiGradShoppingcart.Model
                 totalPrice += product.Price - discount;
             }
             
-            _orderService.ShowConfirmation(_customer, _products, totalPrice, loyaltyPointsEarned);
+            return new Order(totalPrice, loyaltyPointsEarned);
+        }
+
+        public override string ToString()
+        {
+            return "Customer: " + _customer.Name + "\n" + "Bought:  \n" + String.Join("\n", _products.Select(product => "- " + product.Name + ", " + product.Price));
         }
     }
 }
