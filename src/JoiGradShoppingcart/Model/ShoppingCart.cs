@@ -52,7 +52,9 @@ namespace JoiGradShoppingcart.Model
 
         public override string ToString()
         {
-            return "Customer: " + _customer.Name + "\n" + "Bought:  \n" + String.Join("\n", _products.Select(product => "- " + product.Name + ", " + product.Price));
+            var productList = _products.Select(product => $"- {product.Name}, {product.Price}");
+            return $"Customer: {_customer.Name}\n" + 
+                $"Bought:  \n{String.Join("\n", productList)}";
         }
     }
 }

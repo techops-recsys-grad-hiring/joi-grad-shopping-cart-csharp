@@ -13,7 +13,8 @@ namespace JoiGradShoppingcart.Model
 
         public override string ToString()
         {
-            return "Total price: " + TotalPrice + "\n" + "Will receive " + LoyaltyPoints + " loyalty points";
+            return $"Total price: {TotalPrice}\n" +
+                $"Will receive {LoyaltyPoints} loyalty points";
         }
     }
 }
