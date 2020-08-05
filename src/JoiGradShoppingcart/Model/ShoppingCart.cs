@@ -6,7 +6,6 @@ namespace JoiGradShoppingcart.Model
 {
     public class ShoppingCart
     {
-        //Product and quantity
         private Customer _customer;
         private List<Product> _products;
 
