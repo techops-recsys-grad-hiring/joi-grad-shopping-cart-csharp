@@ -1,6 +1,6 @@
 # Welcome to Shopping Cart
 
-*Read this in other languages: [English](README.md), [Português do Brasil](README.pt-br.md).*
+*Read this in other languages: [English](readme.md), [Português do Brasil](readme.pt-br.md).*
 
 This is where you can start to get familiar with the problem and what you need to run it.
 This codebase is used during pairing session for JOI initiative.
